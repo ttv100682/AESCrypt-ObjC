@@ -282,7 +282,7 @@ static void FixKeyLengths( CCAlgorithm algorithm, NSMutableData * keyData, NSMut
 	{
 		case kCCAlgorithmAES128:
 		{
-			if ( keyLength < 16 )
+			if ( keyLength <= 16 ) // For MD5 encrypted key, key length must be 16
 			{
 				[keyData setLength: 16];
 			}
